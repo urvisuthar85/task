@@ -1,0 +1,55 @@
+
+{% extends 'teachers/base.html' %}{% block title %}Update blog {{ post.title }}{%endblock%}
+
+{% block content %}
+
+<table>
+<div class="row">
+	<div class="col-md-5">
+		<h5>Students:</h5>
+		<hr>
+
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-success" href="{% url 'post_create' %}"> +Teacher Entry </a>
+
+
+			<table class="table table-sm table-light" style="border: 1px solid black;" >
+				<tr>
+					
+					<th>school</th>
+					<th>Teacher_FirstName</th>
+					<th>Teacher_LastName</th>
+					<th>Teacher_Gender</th>
+					<th>Teacher_Profession</th>
+					<th>Teacher_Age</th>
+					<th>Featured</th>
+					
+				</tr>
+
+				{% for teacher in object_list %}
+					<tr>
+                        
+						<td>{{ teacher.school}}</td>
+						<td>{{ teacher.teacher_firstname}}</td>
+						<td>{{ teacher.teacher_lastname}}</td>
+						<td>{{ teacher.teacher_gender}}</td>
+						<td>{{ teacher.teacher_profession}}</td>
+						<td>{{ teacher.teacher_age}}</td>
+						<td>{{ teacher.featured }}</td>
+						<td><a href="{% url 'post_update' teacher.id %}">update</a></td>
+						<td><a href="{% url 'delete' teacher.id %}">delete</a></td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+
+
+</table>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,55 @@
+
+{% extends 'student/base.html' %}{% block title %}Update data {{ student.title }}{%endblock%}
+
+{% block content %}
+
+<table>
+<div class="row">
+	<div class="col-md-5">
+		<h5>Students:</h5>
+		<hr>
+
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-success" href="{% url 'stupost_create' %}"> +Student Entry </a>
+
+
+			<table class="table table-sm table-light" style="border: 1px solid black;" >
+				<tr>
+					
+					<th>school</th>
+					<th>Student_FirstName</th>
+					<th>Student_LastName</th>
+					<th>Student_Gender</th>
+					<th>Student_Selected_Subject</th>
+					<th>Student_Admission_Date</th>
+					<th>Student_Fees</th>
+					
+				</tr>
+
+				{% for student in object_list %}
+					<tr>
+                        
+						<td>{{ student.school}}</td>
+						<td>{{ student.student_firstname}}</td>
+						<td>{{ student.student_lastname}}</td>
+						<td>{{ student.student_gender}}</td>
+						<td>{{ student.student_subject}}</td>
+						<td>{{ student.student_admission_date}}</td>
+						<td>{{ student.student_fees }}</td>
+						<td><a href="{% url 'stupost_update' student.id %}">update</a></td>
+						<td><a href="{% url 'studelete' student.id %}">delete</a></td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+
+
+</table>
+
+
+{% endblock %}
+
+

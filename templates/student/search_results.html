@@ -1,0 +1,24 @@
+
+  
+  {% extends 'student/base.html' %}{% block title %}student details {{ student.student_firstname }}{%endblock%}
+
+  {% block content %}
+  {% for student in object_list %}
+  <h1> details {{ student.school }} school<small>   ({{ student.student_firstname}})</small></h1>
+  <br>
+  <h3>student name == {{student.student_firstname}} {{student.student_lastname}}</h3>
+  <br>
+  <h3>student subject == {{student.student_subject }}</h3>
+
+  <br>
+  <h3>student addmission date == {{ student.student_admission_date}}</h3>
+  <br>
+  <h3>student fees == {{student.student_fees}}</h3>
+  <h1></h1>
+  <br>
+  <br>
+  <hr>
+
+  {% endfor %}
+  {% endblock %}
+  

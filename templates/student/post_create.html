@@ -1,0 +1,13 @@
+{% extends 'student/base.html' %}{% block title %}Student entry {{ Student.school }}{%endblock%}
+
+{% block content %}
+
+<h1> Student Entry </h1>
+<div class="form-group">
+<form class="" method="POST" class=""form-group"">
+    {% csrf_token %}
+    {{form.as_p}}
+<button class="btn btn-secondary" >post</button>
+</form>
+</div>
+{% endblock %}
